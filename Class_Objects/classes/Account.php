@@ -2,17 +2,37 @@
 
 
 class Account {
+    
     //properties
     public int $number;
     public string $type;
-    public float $balance;
-  
+    protected float $balance;
+
     //methods
+    public function __construct(int $number, string $type ,float $balance){  
+        $this->number = $number;
+        $this->type = $type;
+        $this->balance = $balance;
+    }
+
+    public function deposit($amount):float{
+    
+        $this->balance += $amount;
+        return $this->balance;
+    }
+    public function withdraw($amount):float{
+    
+        $this->balance -= $amount;
+        return $this->balance;
+    }
+
+    public function getBalance():float{
+           return $this->balance;
+    }
 
 }
 
-$customer = new Customer();
-$account = new Account();
-$customer->email = 'daniel@mihai.com';
-$account->balance = 1000.00;
+
+
+
 
